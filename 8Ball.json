@@ -1,0 +1,27 @@
+{
+  "msgError": "Whoa now, that doesn't seem like a proper question:\nPlease make certain you ask your question in quotation marks and end your question with a question mark.\nFor example, \"Will I win the lottery?\". Try again.",
+  "responses" : [
+        {"type": "positive", "text": "It is certain"},
+        {"type": "positive", "text": "It is decidedly so"},
+        {"type": "positive", "text": "Without a doubt"},
+        {"type": "positive", "text": "Yes definitely"},
+        {"type": "positive", "text": "You may rely on it"},
+        {"type": "positive", "text": "As I see it, yes"},
+        {"type": "positive", "text": "Most likely"},
+        {"type": "positive", "text": "Outlook good"},
+        {"type": "positive", "text": "Mos def"},
+        {"type": "positive", "text": "Signs point to yes"},
+
+        {"type": "neutral", "text": "Reply hazy try again"},
+        {"type": "neutral", "text": "Ask again later"},
+        {"type": "neutral", "text": "Better not tell you now"},
+        {"type": "neutral", "text": "Cannot predict now"},
+        {"type": "neutral", "text": "Concentrate and ask again"},
+
+        {"type": "nagative", "text": "Don't count on it"},
+        {"type": "nagative", "text": "My reply is no"},
+        {"type": "nagative", "text": "My sources say no"},
+        {"type": "nagative", "text": "Outlook not so good"},
+        {"type": "nagative", "text": "Very doubtful"}
+    ]
+}
