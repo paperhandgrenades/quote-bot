@@ -1,0 +1,32 @@
+{
+  "games" : [
+		{"text": "as the Imposter"},
+		{"text": "with some OBS settings"},
+		{"text": "Half-Life 3"},
+		{"text": "3D Maze on Windows 95"},
+		{"text": "any Game I want, it's my life"},
+		{"text": "Solitare"},
+		{"text": "Full Tilt! Pinball"},
+		{"text": "Microsoft Paint"},
+		{"text": "Minesweeper"},
+		{"text": "The Game"}		
+	],
+  "streams" : [
+		{"text": "to an exclusive bot-only Twitch stream"},
+		{"text": "Netflix"},
+		{"text": "Hulu"},
+		{"text": "Disney+"}
+	],
+  "listens" : [
+		{"text": "TSwift on repeat on iTunes"},
+		{"text": "StreamBeats on Spotify, royalty free"},
+		{"text": "\"How to Become Cognitive\" by Hal 9000 on Aubible"},
+		{"text": "you and is here for you"}
+	],
+  "watches" : [
+		{"text": "last year's event VODS"},
+		{"text": "Extra Life streamers on Twitch"},
+		{"text": "a Hallmark Christmas movie marathon"},
+		{"text": "for your commands"}
+	]     
+}

@@ -8,7 +8,7 @@ import requests
 import json
 from dotenv import load_dotenv
 from discord.ext import commands
-
+import asyncio
 
 # ###
 # Load Items
@@ -18,7 +18,6 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 ERRORCHANNEL = os.getenv('DISCORD_ERROR_CHANNEL')
 runDirectory = os.path.dirname(os.path.realpath(__file__))+"/"
-ErrChannel = None
 logging.basicConfig(level=logging.INFO)
 
 
@@ -30,8 +29,7 @@ def get_error_channel():
     guild = discord.utils.get(bot.guilds, name=GUILD)
     for channel in guild.channels:
         if(channel.name == ERRORCHANNEL):
-            tmpChannel = bot.get_channel(channel.id)
-            
+            tmpChannel = bot.get_channel(channel.id)          
     return tmpChannel
 
 
@@ -41,16 +39,37 @@ def get_error_channel():
 
 bot = commands.Bot(command_prefix='!')
 
+async def status_task(passedChoices):
+    await bot.change_presence(activity=discord.Game(name="the loading music..."))
+    await asyncio.sleep(10)
+    while True:
+        i = random.randint(1,4)
+        if i==1 | i==2:
+            await bot.change_presence(activity=discord.Game(name=(random.choice(passedChoices['games']))['text']))
+        elif i==3:
+            await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name=(random.choice(passedChoices['listens']))['text']))   
+        elif i==4:
+            await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=(random.choice(passedChoices['watches']))['text']))
+        # Setting `Streaming ` status
+            # await bot.change_presence(activity=discord.Streaming(name="My Stream", url=my_twitch_url))   
+        await asyncio.sleep(900)
+
 @bot.event
 async def on_ready():
     guild = discord.utils.get(bot.guilds, name=GUILD)
     print(
         f'{bot.user.name} has connected to the following guild:\n'
         f'{guild.name}(id: {guild.id})'
-    )
+    )    
     ErrChannel = get_error_channel()
-            
     await ErrChannel.send("QuoteBot has Connected")
+    try:
+        with open(runDirectory+'status.json') as f:
+            statusChoices = json.load(f)
+        bot.loop.create_task(status_task(statusChoices))    
+    except Exception as e:
+        print(e)
+        await ErrChannel.send("Error Finding response from Status File")
 
 @bot.event
 async def on_member_join(member):
