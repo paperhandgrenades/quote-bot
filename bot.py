@@ -109,12 +109,4 @@ async def eight_ball(ctx,question='8BALL'):
 # Error Handling and Execution
 # ###
 
-@bot.event
-async def on_command_error(ctx, error):
-	if isinstance(error, commands.errors.CommandNotFound):
-		await ctx.author.send('The command you entered does not exist')
-	else:
-		with open('err.log', 'a') as f:
-			f.write(f'Unhandled message: {error}\n')
-
 bot.run(TOKEN)
